@@ -8,7 +8,7 @@
 
 ## Käivitamine
 
-1. Ava fail `unicorn-squad.html` brauseris (topeltklõps või lohista brauseri aknasse).
+1. Ava fail `unicorn-squad.html` brauseris (topeltklõps või lohista brauseri aknasse) või ava https://screenshot-to-soul-2116.lovable.app
 2. Internetiühendust ega paigaldamist ei ole vaja: fondid ja esilehe pilt on failis sees (base64).
 3. Vali esilehel roll, sisesta kood ja vajuta **Sisene**.
 

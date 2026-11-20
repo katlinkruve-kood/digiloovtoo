@@ -1,120 +1,139 @@
-# Digiloovtöö mall
+# HK Unicorn Squad – õpikeskkond (demo)
 
-See repositoorium on GitHubi mall digiloovtöö jaoks.  
-Malli eesmärk on anda õpilastele ja juhendajatele kohe kasutatav tööruum, kus on olemas:
-- projekti põhidokumendid,
-- juhendid,
-- issue mallid,
-- töö planeerimise ja kokkuvõtete failid.
+Ühefaililine veebirakendus (`unicorn-squad.html`) HK Unicorn Squadi tehnoloogiaringide jaoks: tüdrukutele vanuses 8–14. Keskkonnas on kolm rolli: **administraator**, **juhendaja** ja **õpilane**. Iga roll näeb oma vaadet: kursused ja tunnid, grupid, tööde esitamine ja tagasiside, märgid, tunnistus, kastide logistika ja suvelaager.
 
-## Milleks see mall on?
+> **NB! See on prototüüp.** Serverit ega andmebaasi ei ole. Kõik andmed on brauseri mälus ja **kaovad lehe uuesti laadimisel**. E-kirju ei saadeta.
 
-See mall aitab:
-- alustada projekti ühtse struktuuriga;
-- hoida tööfailid ühes kohas;
-- planeerida ülesandeid GitHubi issue'dega;
-- toetada juhendamist ja töö edenemise jälgimist.
+---
 
-## Mis tuleb malliga kaasa?
+## Käivitamine
 
-Selle malli kasutamisel luuakse uus repositoorium sama põhistruktuuriga.
+1. Ava fail `unicorn-squad.html` brauseris (topeltklõps või lohista brauseri aknasse).
+2. Internetiühendust ega paigaldamist ei ole vaja: fondid ja esilehe pilt on failis sees (base64).
+3. Vali esilehel roll, sisesta kood ja vajuta **Sisene**.
 
-Peamised osad on:
-- [`WIKI/`](./WIKI/README.md) – projekti peamised tööfailid ja dokumentatsioon
-- [`juhendid/`](./juhendid/README.md) – juhendid õpilasele, juhendajale ja GitHubi kasutamiseks
-- [`issue template'id`](./.github/ISSUE_TEMPLATE) – ülesannete loomiseks
-- [`discussion template'id`](./.github/DISCUSSION_TEMPLATE) – arutelude loomiseks
-- [`workflows`](./.github/workflows) – automaatsete tegevuste jaoks
+### Demokoodid
 
-## Alusta siit
+| Roll | Kood |
+|---|---|
+| Administraator | `UNI-ADM` |
+| Juhendaja | `UNI-JUH` (sisened alati kui *Marika*) |
+| Õpilased | `UNI-ITI1` (Iti), `UNI-MIA2` (Mia), `UNI-LAU3` (Laura), `UNI-KAI4` (Kaisa), `UNI-LII5` (Liisa) |
 
-1. Vajuta **Use this template** (Kasuta seda malli)
-2. Loo selle põhjal uus repositoorium
-3. Ava fail [`WIKI/projekti-kirjeldus.md`](./WIKI/projekti-kirjeldus.md)
-4. Täida projekti põhiandmed
-5. Tutvu failiga [`WIKI/README.md`](./WIKI/README.md)
-6. Ava sobiv juhend kaustas [`juhendid/`](./juhendid/README.md)
+Koodi suurtähed ja väiketähed ei loe. Koodid on ka esilehel kirjas.
 
-## Kiirlingid
+---
 
-### Põhifailid
-- [WIKI avaleht](./WIKI/README.md)
-- [Projekti kirjeldus](./WIKI/projekti-kirjeldus.md)
-- [Persoonad](./WIKI/persoonad.md)
-- [Stsenaariumid](./WIKI/stsenaariumid.md)
-- [Teooria](./WIKI/teooria.md)
-- [Ajakava (üldine)](./WIKI/ajakava-%C3%BCldine.md)
-- [Ajakava (sprindid)](./WIKI/ajakava-sprindid.md)
-- [Planeeritavad issue'd](./WIKI/planeeritavad-issued.md)
-- [Vahekokkuvõtted](./WIKI/vahekokkuv%C3%B5tted.md)
-- [Retrospektiivid](./WIKI/retrospektiivid.md)
-- [Lõppkokkuvõte](./WIKI/l%C3%B5ppkokkuv%C3%B5te.md)
+## Võimalused rollide kaupa
 
-### Juhendid
-- [Juhend õpilasele](./juhendid/juhend-%C3%B5pilasele.md)
-- [Juhend juhendajale](./juhendid/juhend-juhendajale.md)
-- [Mõisted GitHubis](./juhendid/m%C3%B5isted-githubis.md)
-- [Juhend issue'de kohta](./juhendid/juhend-issuede-kohta.md)
-- [Markdown-juhend](./juhendid/Markdown-juhend.md)
-- [Edasijõudnutele: Wiki ja Discussions](./juhendid/edasij%C3%B5udnutele-wiki-ja-discussions.md)
+### Administraator (`Haldus`)
 
-## WIKI kaust
+- **Ülevaade:** arvud (juhendajad, grupid, õpilased, tunnid, jagatud märgid, õpiväljunditeta tunnid). Juhendaja konto loomine. Juhendaja ligipääsu peatamine ja tagasiandmine. Laagrijuhi õiguse andmine.
+- **Tunnid ja õpiväljundid:** kursuste ja Pro moodulite haldus (tutvustus, eesmärgid). Uue tunni lisamine. Tunni muutmine: nimi, eesmärk, programm, õpiväljundid, sammud, kursus, tüüp, kestus, kategooria, videolink, ohutusmärkus, lisaülesanne, kasti sisu ja lisaks vajalik.
+- **Rotatsioon:** tunni määramine juhendajale või koolile kuupäevaga. Staatus *plaanis / toimunud / ära jäänud*. Samast vaatest saab kohe luua paki.
+- **Logistika:** pakkide (tunnikastide) jälgimine. Staatus *ootel / postitatud / kohal / tagastatud*, kuupäevad, kuhu edasi saata, Omniva kood.
+- **Juhendajate ülesanded:** linnukestega kontrollnimekirjad kõigile või ühele juhendajale. Edenemine on näha juhendaja kaupa.
+- **Märgid:** märkide kataloog ja märgi andmine õpilasele.
+- **Laager:** üldinfo, päevakava, registreerimised ja vanema nõusolekud.
+- **Postkast:** juhendajate kirjad korraldajale, loetuks märkimine.
 
-Kaust [`WIKI/`](./WIKI/README.md) sisaldab projekti peamisi tööfaile.
+### Juhendaja
 
-Soovituslik tööjärjekord on:
-1. [projekti-kirjeldus.md](./WIKI/projekti-kirjeldus.md)
-2. [persoonad.md](./WIKI/persoonad.md)
-3. [stsenaariumid.md](./WIKI/stsenaariumid.md)
-4. [teooria.md](./WIKI/teooria.md)
-5. [ajakava-üldine.md](./WIKI/ajakava-%C3%BCldine.md)
-6. [ajakava-sprindid.md](./WIKI/ajakava-sprindid.md)
-7. [planeeritavad-issued.md](./WIKI/planeeritavad-issued.md)
-8. [vahekokkuvõtted.md](./WIKI/vahekokkuv%C3%B5tted.md)
-9. [retrospektiivid.md](./WIKI/retrospektiivid.md)
-10. [lõppkokkuvõte.md](./WIKI/l%C3%B5ppkokkuv%C3%B5te.md)
+- **Ülevaade:** järgmine tund rotatsioonist ja teel olevad pakid. Teate saatmine grupile koos aegumiskuupäevaga.
+- **Grupid:** grupi loomine, õpilaste valimine (õpilane saab olla ainult ühes grupis), uue õpilase lisamine koos automaatse sisenemiskoodiga. Edenemine, fotoloa olek, kinnitamist ootavad tööd, grupiülesanded.
+- **Õpilase leht:** läbitud tundide märkimine, tööde kinnitamine või tagasilükkamine, isiklik tagasiside, märkide andmine ja eemaldamine, omandatud oskused, privaatne märkus.
+- **Tunnistus:** antakse välja, kui õpilane on läbinud vähemalt **80%** tundidest. Prinditav A4-le või salvestatav PDF-ina.
+- **Tunnid:** tunniplaan ja tunni ettevalmistus: ohutusmärkus, videojuhis, „Kastis on“, „Lisaks on vaja“, kasti tagastamise kontrollnimekiri, märge „ettevalmistatud“. Lisaks esitatud tööd grupi kaupa.
+- **Logistika:** oma pakid, ülesannete linnukesed, kiri korraldajale.
+- **Foorum:** üldteema või tunnipõhine arutelu koos vastustega.
+- **Laager:** päevakava ja ruumide jaotus. Laagrijuht näeb ka registreerimisi ja saab ruume lisada.
+- **Abi:** lühijuhend juhendajale.
 
-## Juhendid
+### Õpilane
 
-Kaust [`juhendid/`](./juhendid/README.md) aitab kasutada malli erinevates rollides.
+- **Minu kursus:** teated, grupi tunniplaan, ülesanded, tundide otsing ja lemmikud (★).
+- **Tunni leht:** õpiväljundid, sammud, mida saab tehtuks märkida (edenemisriba), lisaülesanne. Töö lisamine koos pildi ja kolme enesetagasiside küsimusega. Pilt vähendatakse brauseris kuni 1000 px laiuseks.
+- **Grupi tööd:** kaaslaste kinnitatud tööd, südamed ja kommentaarid lausealgusega („Mulle meeldis…“). Kui kaaslasel pole fotoluba, siis tema pilti ei näidata.
+- **Minu mapp:** edenemine, omandatud oskused, saadud ja saamata märgid, oma tööd ja juhendaja tagasiside.
+- **Laager:** päevakava, oma rühm ja ruum, prinditav kaelapilet.
+- **Abi:** lühijuhend õpilasele.
 
-- Õpilane saab alustada failist [juhend-õpilasele.md](./juhendid/juhend-%C3%B5pilasele.md)
-- Juhendaja saab alustada failist [juhend-juhendajale.md](./juhendid/juhend-juhendajale.md)
-- GitHubi põhimõistete jaoks on fail [mõisted-githubis.md](./juhendid/m%C3%B5isted-githubis.md)
-- Issue'de kasutamiseks on fail [juhend-issuede-kohta.md](./juhendid/juhend-issuede-kohta.md)
+Külgribal on kõigil (peale administraatori) kursuste menüü (1.–6. kursus ja Pro moodulid 1–4).
 
-## Issue'd
+---
 
-Selles mallis kasutatakse GitHubi issue'sid tööülesannete, küsimuste, probleemide ja ideede kirjapanekuks.
+## Sisu
 
-Soovitus:
-- alusta tavalistest ehk põhi-issue'dest (peamised ülesanded);
-- jaga suur töö vajadusel mitmeks eraldi issue'ks (ülesandeks);
-- kasuta faili [`WIKI/planeeritavad-issued.md`](./WIKI/planeeritavad-issued.md), et ülesanded enne läbi mõelda;
-- loe juhendit [`juhendid/juhend-issuede-kohta.md`](./juhendid/juhend-issuede-kohta.md)
+Demoandmetes on **2. kursuse 9 tundi**, igaühel kasti sisu, sammud ja õpiväljundid:
 
-## Mis tuleb vajadusel eraldi seadistada?
+1. Elekter. Hollandi kuningas
+2. Füüsika. Õhukahur
+3. Robootika. Suur võidusõit (WeDo)
+4. Füüsika ja elektroonika. Ventilaator
+5. Programmeerimine. Kerarobotid (Sphero BOLT)
+6. Programmeerimine. Dubai droonitakso (Tello EDU)
+7. Lennukid
+8. Playtronica
+9. Greenscreen (Veescope Live)
 
-Mõned GitHubi töövahendid ei pruugi olla uues repositooriumis kohe kasutusvalmis ja need tuleb vajadusel üle vaadata.
+Kategooriad: Elekter/elektroonika, Füüsika, Droonid/robootika/programmeerimine, Keskkond, Audio/visual.
 
-Näiteks:
-- **Projects** (projektid) – projektitahvel tuleb vajadusel eraldi luua või seadistada
-- **Discussions** (vestlused) – võib kasutada küsimuste ja ideede jaoks
-- **GitHub Wiki**  – ei ole selle malli põhivoo osa, vaid lisavõimalus edasijõudnutele
+---
 
-## Automaatne algseadistus
+## Tehniline ülesehitus
 
-Repositooriumis on olemas GitHub Actionsi töövood, mida saab kasutada projekti käivitamise toetamiseks.
+- **Üks fail**, ilma raamistiketa: HTML, CSS ja puhas JavaScript.
+- **Kujundus:** CSS-muutujad (`--p`, `--pd`, `--pl`, `--t`, `--k` jne) plokis `:root`. Tume režiim lülitub automaatselt (`prefers-color-scheme`). Mobiilisõbralik (iPhone'i *safe area* arvestatud).
+- **Font:** *Lil Grotesk* (400 ja 700), base64-na failis sees (read 10–11).
+- **Esilehe pilt:** konstant `HERO` (base64 JPEG, rida 59).
+- **Andmed:** objekt `D` (read 67–97):
 
-Kui kasutate alguse issue'de loomise töövoogu:
-1. ava mallist loodud uus repositoorium
-2. mine vaatesse **Actions**
-3. vali sobiv töövoog
-4. käivita see vajadusel käsitsi
+| Võti | Sisu |
+|---|---|
+| `ins` | juhendajad |
+| `B` | märgid |
+| `L` | tunnid |
+| `S` | õpilased (kood, fotoluba, läbitud tunnid, märgid, lemmikud) |
+| `G` | grupid |
+| `GT` | grupiülesanded |
+| `BX` | pakid / logistika |
+| `T` | juhendajate ülesanded |
+| `M` | postkast |
+| `P` | foorumi postitused |
+| `C` | kursused ja Pro moodulid |
+| `R` | rotatsioon / tunniplaan |
+| `CAMP` | laager (päevakava, ruumid, registreerimised) |
+| `N` | teated |
+| `W` | õpilaste tööd (luuakse käivitusel läbitud tundide põhjal) |
 
-## Tähtis
+- **Olek:** objekt `S` (kasutaja, aktiivne sakk, avatud tund jne). Iga muudatus kutsub välja `render()`, mis joonistab vaate `#app` sisse uuesti.
+- **Põhifunktsioonid:** `home()` esileht, `adm()` administraator, `ins()` juhendaja, `stu()` õpilane, `lesson()` tunni leht, `stuPage()` õpilase leht juhendajale, `cert()` tunnistus.
+- **Turvalisus:** kasutaja sisestatud tekst läbib enne kuvamist funktsiooni `esc()` (HTML-i escape).
+- **Printimine:** `@media print` näitab ainult elementi `#cert` (tunnistus või kaelapilet).
 
-- Selle malli põhifookus on repo sees olev **WIKI** kaust.
-- `WIKI` kaust ei ole sama asi mis GitHubi eraldi **Wiki** funktsioon.
-- Kõiki faile ei pea täitma korraga.
-- Failid on mallid, mida võib projekti järgi kohandada.
+---
+
+## Kohandamine
+
+- **Logo:** asenda faili alguses olev kohatäite-SVG (`<symbol id="lm">`) päris Unicorn Squadi logoga (koht on märgitud kommentaariga).
+- **Värvid:** muuda CSS-muutujaid `:root` plokis.
+- **Juhendaja nimi:** konstant `const ME='Marika'`. Praegu siseneb iga juhendaja selle nimega.
+- **Tunnid ja kursused:** muuda massiive `D.L` ja `D.C` või lisa tunde administraatori vaates (muudatused ei salvestu).
+- **Tunnistuse lävend:** funktsioon `elig` (`pct(s)>=80`).
+
+---
+
+## Teadaolevad piirangud (enne päris kasutust)
+
+- **Andmed ei salvestu:** värskendamine taastab demoandmed. Päris kasutuseks on vaja serverit/andmebaasi (või vähemalt `localStorage`'it).
+- **Sisselogimine on näidis:** koodid on lähtekoodis ja esilehel nähtavad. Kõigil juhendajatel on üks kood. Juhendajakonto „ajutist parooli“ ei salvestata ega kasutata.
+- **E-kirju, Omniva teavitusi ja registreerimiskinnitusi ei saadeta:** need on ainult teated ekraanil.
+- **Isikuandmed:** päris laste nimede, fotode ja vanemate nõusolekute hoidmiseks on vaja turvalist taristut ja andmekaitse (GDPR) lahendust.
+- **Videojuhiste lingid** on tundides veel tühjad.
+- **Fondi litsents:** enne avalikku kasutust kontrolli, et *Lil Grotesk*'i võib veebis manustatuna kasutada.
+
+---
+
+## Kontakt
+
+Unicorn Squadi info: <https://unicornsquad.ee>ärgi kohandada.
